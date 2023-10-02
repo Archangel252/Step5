@@ -124,5 +124,17 @@ public:
         City* mCity;   ///< City we are iterating over
         int mPos;       ///< Position in the collection
     };
+
+    /**
+     * Get an iterator for the beginning of the collection
+     * @return Iter object at position 0
+     */
+    Iter begin() { return Iter(this, 0); }
+
+    /**
+     * Get an iterator for the end of the collection
+     * @return Iter object at position past the end
+     */
+    Iter end() { return Iter(this, mTiles.size()); }
 };
 

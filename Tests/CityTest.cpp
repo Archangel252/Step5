@@ -47,3 +47,35 @@ TEST(CityTest, Adjacent)
     ASSERT_EQ(lr, city.GetAdjacent(center, 1, 1)) << L"Lower right test";
 }
 
+TEST(CityTest, Iterator)
+{
+    // Construct a city object
+    City city;
+
+    // Add some tiles
+    auto tile1 = std::make_shared<TileHospital>(&city);
+    auto tile2 = std::make_shared<TileHospital>(&city);
+    auto tile3 = std::make_shared<TileHospital>(&city);
+
+    city.Add(tile1);
+    city.Add(tile2);
+    city.Add(tile3);
+
+    // Begin points to the first item
+    auto iter1 = city.begin();
+
+    // End points after the last item
+    auto iter2 = city.end();
+
+    ASSERT_EQ(tile1, *iter1) << L"First item correct";
+
+    ++iter1;
+    ASSERT_EQ(tile2, *iter1) << L"Second item correct";
+
+    ++iter1;
+    ASSERT_EQ(tile3, *iter1) << L"Third item correct";
+
+    ++iter1;
+    ASSERT_FALSE(iter1 != iter2);
+
+}

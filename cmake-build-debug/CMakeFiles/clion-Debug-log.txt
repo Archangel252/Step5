@@ -1,35 +1,4 @@
-"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\adixo\OneDrive\Documents\GitHub\Step5 -B C:\Users\adixo\OneDrive\Documents\GitHub\Step5\cmake-build-debug
--- The C compiler identification is MSVC 19.37.32822.0
--- The CXX compiler identification is MSVC 19.37.32822.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
-[1/9] Creating directories for 'googletest-populate'
-[1/9] Performing download step (git clone) for 'googletest-populate'
-Error removing directory "C:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/_deps/googletest-src".
-CMake Error at googletest-subbuild/googletest-populate-prefix/tmp/googletest-populate-gitclone.cmake:20 (message):
-  Failed to remove directory:
-  'C:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/_deps/googletest-src'
-
-
-FAILED: googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download C:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download 
-cmd.exe /C "cd /D C:\Users\adixo\OneDrive\Documents\GitHub\Step5\cmake-build-debug\_deps && "C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/tmp/googletest-populate-gitclone.cmake && "C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download"
-ninja: build stopped: subcommand failed.
-
-CMake Error at C:/Program Files/CMake/share/cmake-3.26/Modules/FetchContent.cmake:1622 (message):
-  Build step for googletest failed: 1
-Call Stack (most recent call first):
-  C:/Program Files/CMake/share/cmake-3.26/Modules/FetchContent.cmake:1762:EVAL:2 (__FetchContent_directPopulate)
-  C:/Program Files/CMake/share/cmake-3.26/Modules/FetchContent.cmake:1762 (cmake_language)
-  C:/Program Files/CMake/share/cmake-3.26/Modules/FetchContent.cmake:1976 (FetchContent_Populate)
-  Tests/CMakeLists.txt:21 (FetchContent_MakeAvailable)
-
-
--- Configuring incomplete, errors occurred!
+"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\adixo\OneDrive\Documents\GitHub\Step5 -B C:\Users\adixo\OneDrive\Documents\GitHub\Step5\cmake-build-debug
+-- Configuring done (1.5s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug

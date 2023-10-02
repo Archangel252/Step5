@@ -188,13 +188,13 @@ void CityView::OnPaint(wxPaintEvent& event)
 
     if(mOutlines)
     {
-//        // Draw outlines around each of the on-screen tiles
-//        for (auto tile : mCity)
-//        {
-//            wxPen pen(wxColour(0, 255, 0), 2);
-//            dc.SetPen(pen);
-//            tile->DrawBorder(&dc);
-//        }
+       // Draw outlines around each of the on-screen tiles
+       for (auto tile : mCity)
+       {
+           wxPen pen(wxColour(0, 255, 0), 2);
+           dc.SetPen(pen);
+            tile->DrawBorder(&dc);
+       }
     }
 
     if (mReport)
