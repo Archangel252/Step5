@@ -1,6 +1,6 @@
 /**
  * @file CityApp.h
- * @author Charles B. Owen
+ * @author Aiden Dixon
  *
  * Main application class
  */

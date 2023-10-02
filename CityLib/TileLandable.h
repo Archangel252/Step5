@@ -1,6 +1,6 @@
 /**
  * @file TileLandable.h
- * @author Charles Owen
+ * @author Aiden Dixon
  *
  * Intermediate base class for tiles that can be
  * landed on by the air ambulance

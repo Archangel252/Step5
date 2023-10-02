@@ -1,7 +1,7 @@
 /**
  * @file MemberReport.h
  *
- * @author Charles B. Owen
+ * @author Aiden Dixon
  *
  * This is a single report from a member object in the
  * city. It contains a pointer to the tile and a string 

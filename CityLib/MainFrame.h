@@ -1,6 +1,6 @@
 /**
  * @file MainFrame.h
- * @author Charles B. Owen
+ * @author Aiden Dixon
  *
  * The top-level (main) frame of the application
  */

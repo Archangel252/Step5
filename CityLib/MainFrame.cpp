@@ -1,6 +1,6 @@
 /**
  * @file MainFrame.cpp
- * @author Charles B. Owen
+ * @author Aiden Dixon
  */
 #include "pch.h"
 #include "ids.h"

@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author Charles B. Owen
+ * @author Aiden Dixon
  *
  * Main entry point for program
  */

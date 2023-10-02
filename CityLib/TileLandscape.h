@@ -1,7 +1,7 @@
 /**
 * @file TileLandscape.h
 *
-* @author Charles B. Owen
+* @author Aiden Dixon
 *
 *  Class that implements a Landscape tile
 */

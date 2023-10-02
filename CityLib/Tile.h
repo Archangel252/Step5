@@ -1,7 +1,7 @@
 /**
  * @file Tile.h
  *
- * @author Charles B. Owen
+ * @author Aiden Dixon
  *
  * Base class for any tile in our city
  */

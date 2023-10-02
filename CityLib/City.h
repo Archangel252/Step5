@@ -1,7 +1,7 @@
 /**
  * @file City.h
  *
- * @author Charles B. Owen
+ * @author Aiden Dixon
  *
  *  Class that implements a simple city with tiles we can manipulate
  */
@@ -84,5 +84,45 @@ public:
     std::shared_ptr<Tile> GetAdjacent(Tile *tile, int dx, int dy);
 
     std::shared_ptr<CityReport> GenerateCityReport();
+
+    /** Iterator that iterates over the city tiles */
+    class Iter
+    {
+    public:
+        /** Constructor
+         * @param city The city we are iterating over
+         * @param pos Position in the collection
+         */
+        Iter(City* city, int pos) : mCity(city), mPos(pos) {}
+
+        /**
+         * Compare two iterators
+         * @param other The other iterator we are comparing to
+         * @return  true if this position is not equal to the other position
+        */
+        bool operator!=(const Iter& other) const
+        {
+            return mPos != other.mPos;
+        }
+
+        /**
+         * Get value at current position
+         * @return Value at mPos in the collection
+         */
+        std::shared_ptr<Tile> operator *() const { return mCity->mTiles[mPos]; }
+
+        /**
+         * Increment the iterator
+         * @return Reference to this iterator */
+        const Iter& operator++()
+        {
+            mPos++;
+            return *this;
+        }
+
+    private:
+        City* mCity;   ///< City we are iterating over
+        int mPos;       ///< Position in the collection
+    };
 };
 

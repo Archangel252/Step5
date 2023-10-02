@@ -1,6 +1,6 @@
 /**
  * @file CityView.cpp
- * @author Charles B. Owen
+ * @author Aiden Dixon
  */
 #include "pch.h"
 

@@ -1,6 +1,6 @@
 /**
  * @file CityView.h
- * @author Charles B. Owen
+ * @author Aiden Dixon
  *
  *  Class that implements the child window our program draws in.
  *

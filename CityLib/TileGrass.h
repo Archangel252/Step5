@@ -1,6 +1,6 @@
 /**
  * @file TileGrass.h
- * @author Charles Owen
+ * @author Aiden Dixon
  *
  * Class that implements grass tiles
  */

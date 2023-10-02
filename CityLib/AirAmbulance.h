@@ -1,7 +1,7 @@
 /**
  * @file AirAmbulance.h
  *
- * @author Charles B. Owen
+ * @author Aiden Dixon
  *
  * Class the implements an air ambulance
  */

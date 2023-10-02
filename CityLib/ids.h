@@ -1,6 +1,6 @@
 /**
  * @file ids.h
- * @author Charles B. Owen
+ * @author Aiden Dixon
  * ID values for menus and other controls
  */
 
