@@ -242,12 +242,12 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 3,
-			"id" : "gtest::@1ea2dfc0605fe3ab2a3f"
-		},
-		{
 			"backtrace" : 2,
 			"id" : "CityLib::@17786f8c1203c7811a52"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "gtest::@1ea2dfc0605fe3ab2a3f"
 		}
 	],
 	"id" : "Tests_run::@3e3005ae7443f751ac85",
