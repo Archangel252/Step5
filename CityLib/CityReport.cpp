@@ -69,6 +69,7 @@ bool CityReport::ReportsBin::IsFull()
  */
 void CityReport::ReportsBin::Add(std::shared_ptr<MemberReport> report)
 {
+    mSize += 1;
     for(int i=0; i<BinSize; i++)
     {
         if(mReports[i] == nullptr)

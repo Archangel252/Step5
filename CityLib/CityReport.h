@@ -34,6 +34,9 @@ protected:
     /// Size of the bins in the linked list
     static const int BinSize = 7;
 
+
+
+
     /// A bin stores up to 7 city reports in a
     /// single linked list node.
     class ReportsBin {
@@ -43,9 +46,71 @@ protected:
         /// a null pointer after the last report pointer.
         std::shared_ptr<MemberReport> mReports[BinSize+1];
 
+        /// current size of the bin
+        int mSize = 0;
+
         bool IsFull();
         void Add(std::shared_ptr<MemberReport> report);
+
+        /** Iterator that iterates over the cityReport Items*/
+        class Iter
+        {
+        private:
+            ReportsBin* mReportBin;
+            std::shared_ptr<MemberReport> mCurrNode;
+
+        public:
+
+            /** Constructor
+             * @param Report bin
+             * @param pos Position in the collection
+             */
+            Iter(ReportsBin* report, std::shared_ptr<MemberReport> node) : mReportBin(report), mCurrNode(node) {}
+
+            /**
+             * Compare two iterators
+             * @param other The other iterator we are comparing to
+             * @return  true if this position is not equal to the other position
+            */
+            bool operator!=(const Iter& other) const
+            {
+                return mCurrNode != other.mCurrNode;
+            }
+
+            /**
+             * Get value at current position
+             * @return Value at mPos in the collection
+             */
+            std::shared_ptr<MemberReport> operator *() const { return mCurrNode; }
+
+            /**
+             * Increment the iterator
+             * @return Reference to this iterator */
+            const Iter& operator++()
+            {
+                mPos++;
+                return *this;
+            }
+
+        private:
+            ReportsBin* report;   ///< ReportsBin we are iterating over
+            std::shared_ptr<MemberReport>  mcurrNode;       ///< current node  in the collection
+        };
+
+        /**
+         * Get an iterator for the beginning of the collection
+         * @return Iter object at position 0
+         */
+        Iter begin() { return Iter(this, 0); }
+
+        /**
+         * Get an iterator for the end of the collection
+         * @return Iter object at position past the end
+         */
+        Iter end() { return Iter(this, mSize); }
     };
+
+};
 
     /// The collection of reports
     std::list<std::shared_ptr<ReportsBin>> mReportBins;
