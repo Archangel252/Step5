@@ -25,6 +25,12 @@ public:
     TileMock(const TileMock &) = delete;
 
     ~TileMock() {}
+
+    /**
+     * Accept a visitor
+     * @param visitor The visitor we accept
+     * */
+    virtual void Accept(TileVisitor* visitor) override { }
 };
 
 TEST(TileTest, Constructor)

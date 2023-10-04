@@ -172,6 +172,7 @@ TEST_F(CityReportTest, Iterator)
         for (auto memberReport : report)
         {
             ASSERT_TRUE(cnt < results.size());
+            int a;
             ASSERT_EQ(results[cnt]->Report(), memberReport->Report());
 
             cnt++;

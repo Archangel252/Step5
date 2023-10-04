@@ -5,6 +5,22 @@
 #include <TileLandscape.h>
 #include <TileBuilding.h>
 #include <TileHospital.h>
+#include <TileGrass.h>
+
+
+class TestVisitor : public TileVisitor
+{
+public:
+    virtual void VisitBuilding(TileBuilding* build) override { mNumBuildings++; }
+    virtual void VisitLandscape(TileLandscape* build) override { mNumLandscape++; }
+    virtual void VisitHospital(TileHospital* build) override { mNumHospital++; }
+    virtual void VisitGrass(TileGrass* build) override { mNumGrass++; }
+
+    int mNumBuildings = 0;
+    int mNumLandscape = 0;
+    int mNumHospital = 0;
+    int mNumGrass = 0;
+};
 
 TEST(CityTest, Adjacent)
 {
@@ -78,4 +94,46 @@ TEST(CityTest, Iterator)
     ++iter1;
     ASSERT_FALSE(iter1 != iter2);
 
+}
+
+TEST(CityTest, Visitor)
+{
+    // Construct a city object
+    City city;
+
+    // Add some tiles of each type
+    auto tile1 = std::make_shared<TileGrass>(&city);
+    auto tile2 = std::make_shared<TileBuilding>(&city);
+    auto tile3 = std::make_shared<TileLandscape>(&city);
+    auto tile4 = std::make_shared<TileHospital>(&city);
+
+    city.Add(tile1);
+    city.Add(tile2);
+    city.Add(tile3);
+    city.Add(tile4);
+
+    TestVisitor visitor;
+    city.Accept(&visitor);
+    ASSERT_EQ(1, visitor.mNumBuildings) <<
+                                        L"Visitor number of buildings";
+    ASSERT_EQ(1, visitor.mNumLandscape) <<
+                                        L"Visitor number of Landscapes";
+    ASSERT_EQ(1, visitor.mNumHospital) <<
+                                        L"Visitor number of Hospitals";
+    ASSERT_EQ(1, visitor.mNumGrass) <<
+                                        L"Visitor number of Grass";
+
+    // Construct a city object
+    City city2;
+
+    TestVisitor visitor2;
+    city2.Accept(&visitor2);
+    ASSERT_EQ(0, visitor2.mNumBuildings) <<
+                                        L"Visitor number of buildings";
+    ASSERT_EQ(0, visitor2.mNumLandscape) <<
+                                        L"Visitor number of Landscapes";
+    ASSERT_EQ(0, visitor2.mNumHospital) <<
+                                       L"Visitor number of Hospitals";
+    ASSERT_EQ(0, visitor2.mNumGrass) <<
+                                    L"Visitor number of Grass";
 }

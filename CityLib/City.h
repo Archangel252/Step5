@@ -136,5 +136,17 @@ public:
      * @return Iter object at position past the end
      */
     Iter end() { return Iter(this, mTiles.size()); }
+
+    /**
+ * Accept a visitor for the collection
+ * @param visitor The visitor for the collection
+ */
+    void City::Accept(TileVisitor* visitor)
+    {
+        for (auto tile : mTiles)
+        {
+            tile->Accept(visitor);
+        }
+    }
 };
 

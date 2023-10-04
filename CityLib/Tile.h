@@ -10,6 +10,7 @@
 
 #include <string>
 #include <memory>
+#include "TileVisitor.h"
 
 class City;
 class MemberReport;
@@ -131,5 +132,11 @@ public:
      * @return true if okay to delete.
     */
     virtual bool PendingDelete() { return true; }
+
+    /**
+     * Accept a visitor
+      * @param visitor The visitor we accept
+      */
+    virtual void Accept(TileVisitor* visitor) = 0;
 };
 

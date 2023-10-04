@@ -31,5 +31,11 @@ public:
     void XmlLoad(wxXmlNode* node) override;
 
     virtual void Report(std::shared_ptr<MemberReport> report) override;
+
+    /**
+     * Accept a visitor
+     * @param visitor The visitor we accept
+     */
+    void Accept(TileVisitor* visitor) override { visitor->VisitLandscape(this); }
 };
 

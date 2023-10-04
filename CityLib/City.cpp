@@ -369,5 +369,7 @@ std::shared_ptr<CityReport> City::GenerateCityReport()
     }
 
     return report;
+
+
 }
 

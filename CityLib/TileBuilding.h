@@ -35,5 +35,11 @@ public:
     virtual void Report(std::shared_ptr<MemberReport> report) override;
 
     void SetImage(const std::wstring& file) override;
+
+    /**
+     * Accept a visitor
+     * @param visitor The visitor we accept
+     */
+    void Accept(TileVisitor* visitor) override { visitor->VisitBuilding(this); }
 };
 

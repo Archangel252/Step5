@@ -70,6 +70,9 @@ public:
     void Save(wxString filename);
 
     void Load(wxString filename);
+
+    ///When the buildings count button is clicked
+    void OnBuildingsCount(wxCommandEvent &event);
 };
 
 #endif //CITY_EXAMPLEVIEW_H

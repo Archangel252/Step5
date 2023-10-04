@@ -303,6 +303,24 @@ build CityLib\CMakeFiles\CityLib.dir\TileGrass.cpp.obj: CXX_COMPILER__CityLib_un
   TARGET_COMPILE_PDB = CityLib\CMakeFiles\CityLib.dir\CityLib.pdb
   TARGET_PDB = CityLib\CityLib.pdb
 
+build CityLib\CMakeFiles\CityLib.dir\TileVisitor.cpp.obj: CXX_COMPILER__CityLib_unscanned_Debug C$:\Users\adixo\OneDrive\Documents\GitHub\Step5\CityLib\TileVisitor.cpp | CityLib\CMakeFiles\CityLib.dir\cmake_pch.hxx CityLib\CMakeFiles\CityLib.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_CityLib
+  DEFINES = -DUNICODE -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd /YuC:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/CityLib/CMakeFiles/CityLib.dir/cmake_pch.hxx /FpC:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/CityLib/CMakeFiles/CityLib.dir/./cmake_pch.cxx.pch /FIC:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/CityLib/CMakeFiles/CityLib.dir/cmake_pch.hxx
+  INCLUDES = -external:IC:\wxWidgets-3.2.2\lib\vc_x64_lib\mswu -external:IC:\wxWidgets-3.2.2\include -external:W0
+  OBJECT_DIR = CityLib\CMakeFiles\CityLib.dir
+  OBJECT_FILE_DIR = CityLib\CMakeFiles\CityLib.dir
+  TARGET_COMPILE_PDB = CityLib\CMakeFiles\CityLib.dir\CityLib.pdb
+  TARGET_PDB = CityLib\CityLib.pdb
+
+build CityLib\CMakeFiles\CityLib.dir\BuildingCounter.cpp.obj: CXX_COMPILER__CityLib_unscanned_Debug C$:\Users\adixo\OneDrive\Documents\GitHub\Step5\CityLib\BuildingCounter.cpp | CityLib\CMakeFiles\CityLib.dir\cmake_pch.hxx CityLib\CMakeFiles\CityLib.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_CityLib
+  DEFINES = -DUNICODE -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd /YuC:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/CityLib/CMakeFiles/CityLib.dir/cmake_pch.hxx /FpC:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/CityLib/CMakeFiles/CityLib.dir/./cmake_pch.cxx.pch /FIC:/Users/adixo/OneDrive/Documents/GitHub/Step5/cmake-build-debug/CityLib/CMakeFiles/CityLib.dir/cmake_pch.hxx
+  INCLUDES = -external:IC:\wxWidgets-3.2.2\lib\vc_x64_lib\mswu -external:IC:\wxWidgets-3.2.2\include -external:W0
+  OBJECT_DIR = CityLib\CMakeFiles\CityLib.dir
+  OBJECT_FILE_DIR = CityLib\CMakeFiles\CityLib.dir
+  TARGET_COMPILE_PDB = CityLib\CMakeFiles\CityLib.dir\CityLib.pdb
+  TARGET_PDB = CityLib\CityLib.pdb
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target CityLib
@@ -311,7 +329,7 @@ build CityLib\CMakeFiles\CityLib.dir\TileGrass.cpp.obj: CXX_COMPILER__CityLib_un
 #############################################
 # Link the static library CityLib\CityLib.lib
 
-build CityLib\CityLib.lib: CXX_STATIC_LIBRARY_LINKER__CityLib_Debug CityLib\CMakeFiles\CityLib.dir\cmake_pch.cxx.obj CityLib\CMakeFiles\CityLib.dir\City.cpp.obj CityLib\CMakeFiles\CityLib.dir\Tile.cpp.obj CityLib\CMakeFiles\CityLib.dir\CityReport.cpp.obj CityLib\CMakeFiles\CityLib.dir\MemberReport.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileBuilding.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileLandscape.cpp.obj CityLib\CMakeFiles\CityLib.dir\MainFrame.cpp.obj CityLib\CMakeFiles\CityLib.dir\CityView.cpp.obj CityLib\CMakeFiles\CityLib.dir\AirAmbulance.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileHospital.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileLandable.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileGrass.cpp.obj
+build CityLib\CityLib.lib: CXX_STATIC_LIBRARY_LINKER__CityLib_Debug CityLib\CMakeFiles\CityLib.dir\cmake_pch.cxx.obj CityLib\CMakeFiles\CityLib.dir\City.cpp.obj CityLib\CMakeFiles\CityLib.dir\Tile.cpp.obj CityLib\CMakeFiles\CityLib.dir\CityReport.cpp.obj CityLib\CMakeFiles\CityLib.dir\MemberReport.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileBuilding.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileLandscape.cpp.obj CityLib\CMakeFiles\CityLib.dir\MainFrame.cpp.obj CityLib\CMakeFiles\CityLib.dir\CityView.cpp.obj CityLib\CMakeFiles\CityLib.dir\AirAmbulance.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileHospital.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileLandable.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileGrass.cpp.obj CityLib\CMakeFiles\CityLib.dir\TileVisitor.cpp.obj CityLib\CMakeFiles\CityLib.dir\BuildingCounter.cpp.obj
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = CityLib\CMakeFiles\CityLib.dir

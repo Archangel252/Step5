@@ -16,6 +16,10 @@ set(SOURCE_FILES
         TileLandable.h
         TileGrass.cpp
         TileGrass.h
+        TileVisitor.cpp
+        TileVisitor.h
+        BuildingCounter.cpp
+        BuildingCounter.h
 )
 
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})

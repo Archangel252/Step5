@@ -61,6 +61,9 @@ enum IDs {
 
     /// Buildings>Condos menu option
     IDM_BUILDINGS_CONDOS,
+
+    /// Buildings>Count menu option
+    IDM_BUILDINGS_COUNT,
 };
 
 #endif //CITY_IDS_H

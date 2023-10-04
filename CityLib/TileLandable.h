@@ -53,6 +53,7 @@ public:
     void AirAmbulanceIsGone();
     void AirAmbulanceHasLanded();
     bool PendingDelete() override;
+
 };
 
 #endif //CITY_CITYLIB_TILELANDABLE_H

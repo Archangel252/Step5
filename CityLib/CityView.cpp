@@ -18,6 +18,7 @@
 
 #include "CityReport.h"
 #include "MemberReport.h"
+#include "BuildingCounter.h"
 
 
 /// Initial tile X location
@@ -113,6 +114,10 @@ void CityView::AddMenus(wxFrame* mainFrame, wxMenuBar *menuBar, wxMenu* fileMenu
     //
     menuBar->Append(landscapingMenu, L"&Landscaping" );
     menuBar->Append(buildingsMenu, L"&Buildings");
+
+    ///buildingsMenu->AppendSeparator();
+    buildingsMenu->Append(IDM_BUILDINGS_COUNT, L"&Count", L"Count the buildings");
+    mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &CityView::OnBuildingsCount, this, IDM_BUILDINGS_COUNT);
 }
 
 /**
@@ -219,14 +224,14 @@ void CityView::OnPaint(wxPaintEvent& event)
 
         y += dy;
 
-//        for (auto memberReport : *report)
-//        {
-//            dc.DrawText(memberReport->Report().c_str(),
-//                        x,     // x coordinate for the left size of the text
-//                        y);    // y coordinate for the top of the text
-//
-//            y += dy;
-//        }
+        for (auto memberReport : *report)
+       {
+            dc.DrawText(memberReport->Report().c_str(),
+                        x,     // x coordinate for the left size of the text
+                        y);    // y coordinate for the top of the text
+
+            y += dy;
+        }
 
     }
 }
@@ -443,4 +448,19 @@ void CityView::OnUpdateViewCityReport(wxUpdateUIEvent& event)
 void CityView::OnTimer(wxTimerEvent& event)
 {
     Refresh();
+}
+
+/**
+ * Handle the Buildines>Count menu option
+ * @param event Menu event
+ */
+void CityView::OnBuildingsCount(wxCommandEvent& event)
+{
+    BuildingCounter visitor;
+    mCity.Accept(&visitor);
+    int cnt = visitor.GetNumBuildings();
+
+    std::wstringstream str;
+    str << L"There are " << cnt << L" buildings.";
+    wxMessageBox(str.str().c_str(), L"Building Counter");
 }

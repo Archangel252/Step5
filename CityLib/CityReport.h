@@ -46,71 +46,13 @@ protected:
         /// a null pointer after the last report pointer.
         std::shared_ptr<MemberReport> mReports[BinSize+1];
 
-        /// current size of the bin
-        int mSize = 0;
+
+
 
         bool IsFull();
         void Add(std::shared_ptr<MemberReport> report);
 
-        /** Iterator that iterates over the cityReport Items*/
-        class Iter
-        {
-        private:
-            ReportsBin* mReportBin;
-            std::shared_ptr<MemberReport> mCurrNode;
-
-        public:
-
-            /** Constructor
-             * @param Report bin
-             * @param pos Position in the collection
-             */
-            Iter(ReportsBin* report, std::shared_ptr<MemberReport> node) : mReportBin(report), mCurrNode(node) {}
-
-            /**
-             * Compare two iterators
-             * @param other The other iterator we are comparing to
-             * @return  true if this position is not equal to the other position
-            */
-            bool operator!=(const Iter& other) const
-            {
-                return mCurrNode != other.mCurrNode;
-            }
-
-            /**
-             * Get value at current position
-             * @return Value at mPos in the collection
-             */
-            std::shared_ptr<MemberReport> operator *() const { return mCurrNode; }
-
-            /**
-             * Increment the iterator
-             * @return Reference to this iterator */
-            const Iter& operator++()
-            {
-                mPos++;
-                return *this;
-            }
-
-        private:
-            ReportsBin* report;   ///< ReportsBin we are iterating over
-            std::shared_ptr<MemberReport>  mcurrNode;       ///< current node  in the collection
-        };
-
-        /**
-         * Get an iterator for the beginning of the collection
-         * @return Iter object at position 0
-         */
-        Iter begin() { return Iter(this, 0); }
-
-        /**
-         * Get an iterator for the end of the collection
-         * @return Iter object at position past the end
-         */
-        Iter end() { return Iter(this, mSize); }
     };
-
-};
 
     /// The collection of reports
     std::list<std::shared_ptr<ReportsBin>> mReportBins;
@@ -119,5 +61,69 @@ public:
     explicit CityReport(City* city);
 
     void Add(std::shared_ptr<MemberReport> report);
+
+    /** Iterator that iterates over the the Reports */
+    class Iter
+    {
+    private:
+        /// CityReport we are iterating over
+        CityReport *mCityReport;
+
+        /// Iterator over bins list
+        std::list<std::shared_ptr<ReportsBin>>::iterator mBinsIterator;
+
+        int mReportPos;
+
+    public:
+
+        /** Constructor
+        * @param collection The collection we are iterating over */
+        Iter(CityReport *cityReport, std::list<std::shared_ptr<ReportsBin>>::iterator bins, int reportPos) :
+               mCityReport(cityReport), mBinsIterator(bins), mReportPos(reportPos)  {}
+
+        /**
+        * Get value at current position
+        * @return current report in the collection
+        */
+        std::shared_ptr<MemberReport> operator *() const {return (*mBinsIterator)->mReports[mReportPos];}
+
+
+        /**
+         * Test for end of the iterator
+         * @param other The other iterator we are comparing with
+         * @return True if we this position equals not equal to the other position
+         */
+        bool operator!=(const Iter &other) const
+        {
+            return mBinsIterator != other.mBinsIterator || mReportPos != other.mReportPos;
+        }
+        /**
+         * Increment the iterator
+         * @return Reference to this iterator
+         * */
+        const Iter& operator++()
+        {
+            ///Increments mReportPos
+            if ((*mBinsIterator)->mReports[++mReportPos] == nullptr)
+            {
+                mBinsIterator++;
+                mReportPos = 0;
+            }
+            return *this;
+
+        }
+    };
+
+    /**
+    * Get an iterator for the beginning of the collection
+    * @return Iter object for the beginning of the collection
+    */
+    Iter begin() { return Iter(this, mReportBins.begin(), 0  ); }
+
+    /**
+     * Get an iterator for the end of the collection
+     * @return Iter object for the end of the collection
+     */
+    Iter end() { return Iter(this, mReportBins.end(), 0  );}
 };
 
