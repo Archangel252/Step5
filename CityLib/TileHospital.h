@@ -40,5 +40,16 @@ public:
      * @param visitor The visitor we accept
      */
     void Accept(TileVisitor* visitor) override { visitor->VisitHospital(this); }
+
+    /**
+     * accesses the AMbulance
+     * @returns Ambulance
+     */
+    std::shared_ptr<AirAmbulance> TileHospital::GetAmbulance(){return mAmbulance;}
+    /**
+     * sets the Ambulance
+     */
+    void TileHospital::SetAmbulance(std::shared_ptr<AirAmbulance> ambulance){ mAmbulance = ambulance;}
+
 };
 

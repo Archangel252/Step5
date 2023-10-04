@@ -46,3 +46,31 @@ void TileLandable::AirAmbulanceHasLanded()
 {
 
 }
+
+/**
+* Update function
+* @param elapsed, time elapsed since update
+*/
+void TileLandable::Update(double elapsed)
+{
+    Tile::Update(elapsed);
+    if (mAmbulance != nullptr)
+    {
+        mAmbulance->Update(this, elapsed);
+    }
+
+}
+
+/**
+* Draw function
+* @param dc object that draws
+*/
+void TileLandable::Draw(wxDC *dc)
+{
+    Tile::Draw(dc);
+    if (mAmbulance != nullptr)
+    {
+        mAmbulance->Draw(this,dc);
+    }
+
+}

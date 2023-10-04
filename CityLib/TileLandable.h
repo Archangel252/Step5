@@ -10,6 +10,7 @@
 #define CITY_CITYLIB_TILELANDABLE_H
 
 #include "Tile.h"
+#include "AirAmbulance.h"
 
 /**
  * Intermediate base class for tiles that can be
@@ -26,6 +27,8 @@ private:
 
 protected:
     TileLandable(City *city);
+
+    std::shared_ptr<AirAmbulance> mAmbulance = nullptr;
 
 public:
     /// Default constructor (disabled)
@@ -49,6 +52,14 @@ public:
      * @param y Ambulance Y offset
      */
     void SetAmbulanceOffset(double x, double y) {mAmbulanceOffset.x = x; mAmbulanceOffset.y = y;}
+
+    ///  Handle updates for animation
+    /// @param elapsed The time since the last update
+    void Update(double elapsed) override;
+
+    ///  Drawing of the AirAlbulance specifically
+    /// @param dc is the object that draws
+    void Draw(wxDC *dc) override;
 
     void AirAmbulanceIsGone();
     void AirAmbulanceHasLanded();

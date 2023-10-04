@@ -11,6 +11,7 @@
 #include "TileHospital.h"
 #include "MemberReport.h"
 #include "AirAmbulance.h"
+#include "AirAmbulanceFinder.h"
 
 
 /// The image to display for the hospital tile
@@ -32,6 +33,20 @@ TileHospital::TileHospital(City* city) : TileLandable(city)
 {
     SetImage(HospitalImage);
     SetAmbulanceOffset(HospitalAmbulanceOffsetX, HospitalAmbulanceOffsetY);
+
+
+    AirAmbulanceFinder visitor;
+    city->Accept(&visitor);
+    bool found = visitor.isFound();
+    if (!found)
+    {
+        ///AirAmbulance ambulance(city); // Create an AirAmbulance object
+        std::shared_ptr<AirAmbulance> ambulance = std::make_shared<AirAmbulance>(city);
+        ambulance->SetLaunchingTile(this);
+        this->SetAmbulance(ambulance);
+    }
+
+
 }
 
 
