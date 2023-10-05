@@ -11,6 +11,7 @@
 
 #include "Tile.h"
 #include "AirAmbulance.h"
+#include "TileVisitor.h"
 
 /**
  * Intermediate base class for tiles that can be
@@ -60,6 +61,19 @@ public:
     ///  Drawing of the AirAlbulance specifically
     /// @param dc is the object that draws
     void Draw(wxDC *dc) override;
+
+    /**
+     * Accept a visitor
+     * @param visitor The visitor we accept
+     */
+    void Accept(TileVisitor* visitor) override { visitor->VisitLandable(this); }
+
+    /**
+     * Set the ambulance
+     * @param ambulance
+     */
+    void SetAirAmbulance(std::shared_ptr<AirAmbulance> ambulance) {mAmbulance = ambulance; }
+
 
     void AirAmbulanceIsGone();
     void AirAmbulanceHasLanded();

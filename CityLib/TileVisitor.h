@@ -9,11 +9,14 @@
 #ifndef CITY_TILEVISITOR_H
 #define CITY_TILEVISITOR_H
 
+
+
 // Forward references to all tile types
 class TileBuilding;
 class TileLandscape;
 class TileGrass;
 class TileHospital;
+class TileLandable;
 
 /**
  * Tile visitor base class
@@ -53,6 +56,12 @@ public:
      * @param hospital Tile object we are visiting
      */
     virtual void VisitHospital(TileHospital* hospital) {}
+
+    /**
+     * Visit a TileHospital tile
+     * @param landable Tile object we are visiting
+     */
+    virtual void VisitLandable(TileLandable* landable) {}
 
 
 };

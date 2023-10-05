@@ -45,8 +45,6 @@ TileHospital::TileHospital(City* city) : TileLandable(city)
         ambulance->SetLaunchingTile(this);
         this->SetAmbulance(ambulance);
     }
-
-
 }
 
 

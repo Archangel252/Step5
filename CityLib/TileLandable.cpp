@@ -35,7 +35,7 @@ bool TileLandable::PendingDelete()
 */
 void TileLandable::AirAmbulanceIsGone()
 {
-
+    mAmbulance = nullptr;
 }
 
 /**
@@ -44,7 +44,7 @@ void TileLandable::AirAmbulanceIsGone()
 */
 void TileLandable::AirAmbulanceHasLanded()
 {
-
+    mAmbulance->SetLaunchingTile(this);
 }
 
 /**

@@ -12,6 +12,7 @@
 #include "TileGrass.h"
 #include "TileBuilding.h"
 #include "TileHospital.h"
+#include "AirAmbulance.h"
 
 #include "CityReport.h"
 #include "MemberReport.h"

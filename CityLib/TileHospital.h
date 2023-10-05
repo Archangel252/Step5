@@ -39,7 +39,7 @@ public:
      * Accept a visitor
      * @param visitor The visitor we accept
      */
-    void Accept(TileVisitor* visitor) override { visitor->VisitHospital(this); }
+    void Accept(TileVisitor* visitor) override { TileLandable::Accept(visitor); visitor->VisitHospital(this); }
 
     /**
      * accesses the AMbulance

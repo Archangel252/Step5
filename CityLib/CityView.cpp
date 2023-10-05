@@ -15,10 +15,13 @@
 #include "TileBuilding.h"
 #include "TileHospital.h"
 #include "TileGrass.h"
+#include "TileLandable.h"
 
 #include "CityReport.h"
 #include "MemberReport.h"
 #include "BuildingCounter.h"
+#include "LandableVisitor.h"
+#include "AirAmbulanceFinder.h"
 
 
 /// Initial tile X location
@@ -307,6 +310,33 @@ void CityView::OnMouseMove(wxMouseEvent &event)
  */
 void CityView::OnLeftDoubleClick(wxMouseEvent &event)
 {
+    auto tile = mCity.HitTest(event.GetX(), event.GetY());
+    if (tile != nullptr)
+    {
+        LandableVisitor visitor;
+        tile->Accept(&visitor);
+        ///std::shared_ptr<TileLandable> tilePtr = visitor.isLandable();
+        if(visitor.isLandable())
+        {
+            AirAmbulanceFinder visitor1;
+            mCity.Accept(&visitor1);
+            std::shared_ptr<AirAmbulance> ambulance = visitor1.isFoundPtr();
+            std::shared_ptr<TileLandable> tileLand = visitor1.isFoundTile();
+            if (!(ambulance->InFlight()))
+            {
+                std::shared_ptr<TileLandable> landableSharedPtr = std::dynamic_pointer_cast<TileLandable>(tile);
+                auto tilePtr = landableSharedPtr.get();
+                ///tileLand = tileLand.get();
+                ambulance->SetLandingTile(tilePtr);
+                ///ambulance->SetLaunchingTile(tilePtr);
+                tilePtr->SetAirAmbulance(ambulance);
+
+
+
+            }
+        }
+
+    }
 }
 
 
