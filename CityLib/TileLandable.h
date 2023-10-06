@@ -74,6 +74,12 @@ public:
      */
     void SetAirAmbulance(std::shared_ptr<AirAmbulance> ambulance) {mAmbulance = ambulance; }
 
+    /**
+     * gets the ambulance
+     * @return ambulance
+     */
+    std::shared_ptr<AirAmbulance> GetAirAmbulance() {return mAmbulance; }
+
 
     void AirAmbulanceIsGone();
     void AirAmbulanceHasLanded();

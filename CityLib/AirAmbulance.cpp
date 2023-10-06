@@ -82,7 +82,6 @@ void AirAmbulance::Update(TileLandable* tile, double elapsed)
         {
             mLaunchingTile->AirAmbulanceIsGone();
         }
-
         mLandingTile->AirAmbulanceHasLanded();
     }
 

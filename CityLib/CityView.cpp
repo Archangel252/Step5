@@ -316,23 +316,22 @@ void CityView::OnLeftDoubleClick(wxMouseEvent &event)
         LandableVisitor visitor;
         tile->Accept(&visitor);
         ///std::shared_ptr<TileLandable> tilePtr = visitor.isLandable();
-        if(visitor.isLandable())
+        AirAmbulanceFinder visitor1;
+        mCity.Accept(&visitor1);
+        std::shared_ptr<AirAmbulance> ambulance = visitor1.isFoundPtr();
+        std::shared_ptr<TileLandable> tileLand = visitor1.isFoundTile();
+        if(visitor.isLandable() && ambulance != nullptr)
         {
-            AirAmbulanceFinder visitor1;
-            mCity.Accept(&visitor1);
-            std::shared_ptr<AirAmbulance> ambulance = visitor1.isFoundPtr();
-            std::shared_ptr<TileLandable> tileLand = visitor1.isFoundTile();
+
             if (!(ambulance->InFlight()))
             {
                 std::shared_ptr<TileLandable> landableSharedPtr = std::dynamic_pointer_cast<TileLandable>(tile);
                 auto tilePtr = landableSharedPtr.get();
                 ///tileLand = tileLand.get();
                 ambulance->SetLandingTile(tilePtr);
+
                 ///ambulance->SetLaunchingTile(tilePtr);
                 tilePtr->SetAirAmbulance(ambulance);
-
-
-
             }
         }
 

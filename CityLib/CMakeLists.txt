@@ -24,6 +24,8 @@ set(SOURCE_FILES
         AirAmbulanceFinder.h
         LandableVisitor.cpp
         LandableVisitor.h
+        HospitalVisitor.cpp
+        HospitalVisitor.h
 )
 
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})

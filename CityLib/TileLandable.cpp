@@ -6,6 +6,8 @@
 #include "pch.h"
 #include "TileLandable.h"
 #include "City.h"
+#include "AirAmbulanceFinder.h"
+#include "HospitalVisitor.h"
 
 /**
  * Constructor
@@ -24,7 +26,12 @@ TileLandable::TileLandable(City *city) : Tile(city)
 */
 bool TileLandable::PendingDelete()
 {
-
+    if (mAmbulance != nullptr)
+    {
+        HospitalVisitor visitor(this);
+        City* city = this->GetCity();
+        city->Accept(&visitor);
+    }
     return true;
 }
 

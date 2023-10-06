@@ -22,6 +22,8 @@ public:
      */
     bool isLandable(){return mIsLandable;}
 
+
+
     ///std::shared_ptr<AirAmbulance> getambulance(){}
     /**
      * Visit a Landable object
